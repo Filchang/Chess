@@ -11,6 +11,16 @@ public class Board {
          piecePosition.put(coordinates,piece);
      }
 
+     public void removePiece(Coordinates coordinates){
+         piecePosition.remove(coordinates);
+     }
+
+     public void movePiece(Coordinates from, Coordinates to){
+         Piece piece = getPiecesCoordinate(from);
+         removePiece(from);
+         setPiece(to, piece);
+     }
+
      public void setupDefaultPiecePositions(){
          //set pawns
          for(File file: File.values()){
